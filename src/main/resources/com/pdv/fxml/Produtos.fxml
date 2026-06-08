@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.pdv.controller.ProdutosController"
+            styleClass="root-pane">
+
+    <top>
+        <HBox styleClass="header" alignment="CENTER_LEFT" spacing="16">
+            <padding><Insets top="12" right="20" bottom="12" left="20"/></padding>
+            <Label text="📦 Cadastro de Produtos" styleClass="header-title"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <TextField fx:id="txtBusca" promptText="Buscar produto..." prefWidth="250"/>
+            <Button text="🔍 Buscar" onAction="#buscar" styleClass="btn-secondary"/>
+        </HBox>
+    </top>
+
+    <center>
+        <HBox spacing="0">
+            <!-- Tabela -->
+            <TableView fx:id="tabelaProdutos" HBox.hgrow="ALWAYS" styleClass="tabela-itens">
+                <columns>
+                    <TableColumn fx:id="colId"        text="ID"        prefWidth="50"/>
+                    <TableColumn fx:id="colCodigo"    text="Código"    prefWidth="80"/>
+                    <TableColumn fx:id="colNome"      text="Nome"      prefWidth="220"/>
+                    <TableColumn fx:id="colCategoria" text="Categoria" prefWidth="120"/>
+                    <TableColumn fx:id="colPreco"     text="Preço"     prefWidth="100"/>
+                    <TableColumn fx:id="colEstoque"   text="Estoque"   prefWidth="80"/>
+                </columns>
+            </TableView>
+
+            <!-- Formulário -->
+            <VBox prefWidth="280" styleClass="right-panel" spacing="12">
+                <padding><Insets top="16" right="16" bottom="16" left="16"/></padding>
+                <Label text="DADOS DO PRODUTO" styleClass="panel-title"/>
+                <Separator/>
+
+                <Label text="Código:" styleClass="field-label"/>
+                <TextField fx:id="txtCodigo" promptText="Ex: 001" styleClass="txt-valor"/>
+
+                <Label text="Nome:" styleClass="field-label"/>
+                <TextField fx:id="txtNome" promptText="Nome do produto" styleClass="txt-valor"/>
+
+                <Label text="Categoria:" styleClass="field-label"/>
+                <TextField fx:id="txtCategoria" promptText="Ex: Bebidas" styleClass="txt-valor"/>
+
+                <Label text="Preço (R$):" styleClass="field-label"/>
+                <TextField fx:id="txtPreco" promptText="0.00" styleClass="txt-valor"/>
+
+                <Label text="Estoque:" styleClass="field-label"/>
+                <TextField fx:id="txtEstoque" promptText="0" styleClass="txt-valor"/>
+
+                <Region VBox.vgrow="ALWAYS"/>
+
+                <Button text="💾 Salvar" fx:id="btnSalvar" onAction="#salvar"
+                        maxWidth="Infinity" styleClass="btn-finalizar"/>
+                <Button text="➕ Novo" fx:id="btnNovo" onAction="#novoRegistro"
+                        maxWidth="Infinity" styleClass="btn-secondary"/>
+                <Button text="🗑️ Excluir" onAction="#deletar"
+                        maxWidth="Infinity" styleClass="btn-nova-venda"/>
+            </VBox>
+        </HBox>
+    </center>
+</BorderPane>

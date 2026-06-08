@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.pdv.controller.HistoricoController"
+            styleClass="root-pane">
+
+    <top>
+        <HBox styleClass="header" alignment="CENTER_LEFT">
+            <padding><Insets top="12" right="20" bottom="12" left="20"/></padding>
+            <Label text="📋 Histórico de Vendas (últimas 100)" styleClass="header-title"/>
+        </HBox>
+    </top>
+
+    <center>
+        <TableView fx:id="tabelaVendas" styleClass="tabela-itens">
+            <padding><Insets top="8" right="8" bottom="8" left="8"/></padding>
+            <columns>
+                <TableColumn fx:id="colId"       text="ID"           prefWidth="60"/>
+                <TableColumn fx:id="colDataHora" text="Data/Hora"    prefWidth="160"/>
+                <TableColumn fx:id="colForma"    text="Pagamento"    prefWidth="160"/>
+                <TableColumn fx:id="colDesconto" text="Desconto"     prefWidth="110"/>
+                <TableColumn fx:id="colTotal"    text="Total"        prefWidth="130"/>
+            </columns>
+        </TableView>
+    </center>
+</BorderPane>

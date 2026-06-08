@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.pdv.controller.PDVController"
+            styleClass="root-pane">
+
+    <!-- HEADER -->
+    <top>
+        <HBox styleClass="header" alignment="CENTER_LEFT" spacing="20">
+            <padding><Insets top="12" right="20" bottom="12" left="20"/></padding>
+            <Label text="🛒 SISTEMA PDV" styleClass="header-title"/>
+            <Region HBox.hgrow="ALWAYS"/>
+
+            <!-- Dashboard rápido -->
+            <VBox alignment="CENTER" styleClass="dashboard-card">
+                <Label text="VENDAS HOJE" styleClass="dashboard-label"/>
+                <Label fx:id="lblVendasHoje" text="0" styleClass="dashboard-value"/>
+            </VBox>
+            <VBox alignment="CENTER" styleClass="dashboard-card">
+                <Label text="TOTAL DO DIA" styleClass="dashboard-label"/>
+                <Label fx:id="lblTotalDia" text="R$ 0,00" styleClass="dashboard-value-money"/>
+            </VBox>
+
+            <Button text="📦 Produtos" onAction="#abrirCadastroProdutos" styleClass="btn-secondary"/>
+            <Button text="📋 Histórico" onAction="#abrirHistoricoVendas" styleClass="btn-secondary"/>
+        </HBox>
+    </top>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <center>
+        <HBox spacing="0">
+
+            <!-- LADO ESQUERDO: busca + tabela de itens -->
+            <VBox HBox.hgrow="ALWAYS" styleClass="left-panel" spacing="12">
+                <padding><Insets top="16" right="16" bottom="16" left="16"/></padding>
+
+                <!-- Busca de produto -->
+                <HBox spacing="10" alignment="CENTER_LEFT">
+                    <Label text="Produto:" styleClass="field-label"/>
+                    <TextField fx:id="txtBusca" promptText="Código ou nome do produto..."
+                               styleClass="txt-busca" HBox.hgrow="ALWAYS"/>
+                    <Label text="Qtd:" styleClass="field-label"/>
+                    <TextField fx:id="txtQuantidade" text="1" prefWidth="60" styleClass="txt-qtd"/>
+                    <Button text="+ Adicionar" onAction="#adicionarProduto" styleClass="btn-add" defaultButton="false"/>
+                </HBox>
+
+                <!-- Tabela de itens -->
+                <TableView fx:id="tabelaItens" VBox.vgrow="ALWAYS" styleClass="tabela-itens">
+                    <columns>
+                        <TableColumn fx:id="colCodigo" text="Código" prefWidth="90"/>
+                        <TableColumn fx:id="colNome"   text="Produto" prefWidth="280"/>
+                        <TableColumn fx:id="colQtd"    text="Qtd" prefWidth="70"/>
+                        <TableColumn fx:id="colPrecoUnit" text="Preço Unit." prefWidth="120"/>
+                        <TableColumn fx:id="colSubtotal"  text="Subtotal" prefWidth="120"/>
+                    </columns>
+                    <placeholder>
+                        <Label text="Nenhum item adicionado. Use o campo acima para buscar produtos." styleClass="placeholder-text"/>
+                    </placeholder>
+                </TableView>
+
+                <!-- Dica -->
+                <Label text="💡 Pressione Enter para buscar • Delete para remover item selecionado"
+                       styleClass="dica-text"/>
+            </VBox>
+
+            <!-- LADO DIREITO: painel de pagamento -->
+            <VBox prefWidth="300" styleClass="right-panel" spacing="14">
+                <padding><Insets top="16" right="16" bottom="16" left="16"/></padding>
+
+                <Label text="RESUMO DA VENDA" styleClass="panel-title"/>
+                <Separator/>
+
+                <!-- Subtotal -->
+                <HBox>
+                    <Label text="Subtotal:" styleClass="resumo-label" HBox.hgrow="ALWAYS"/>
+                    <Label fx:id="lblSubtotal" text="R$ 0,00" styleClass="resumo-valor"/>
+                </HBox>
+
+                <!-- Desconto -->
+                <HBox alignment="CENTER_LEFT" spacing="8">
+                    <Label text="Desconto:" styleClass="resumo-label" HBox.hgrow="ALWAYS"/>
+                    <Label fx:id="lblDesconto" text="- R$ 0,00" styleClass="resumo-desconto"/>
+                </HBox>
+                <HBox alignment="CENTER_LEFT" spacing="8">
+                    <Label text="Valor desconto (R$):" styleClass="field-label-small"/>
+                    <TextField fx:id="txtDesconto" text="0,00" prefWidth="100" styleClass="txt-valor"/>
+                </HBox>
+
+                <Separator/>
+
+                <!-- Total -->
+                <HBox>
+                    <Label text="TOTAL:" styleClass="total-label" HBox.hgrow="ALWAYS"/>
+                    <Label fx:id="lblTotal" text="R$ 0,00" styleClass="total-valor"/>
+                </HBox>
+
+                <Separator/>
+
+                <!-- Forma de pagamento -->
+                <Label text="Forma de Pagamento:" styleClass="field-label"/>
+                <ComboBox fx:id="cmbFormaPagamento" maxWidth="Infinity" styleClass="cmb-pagamento"/>
+
+                <!-- Valor pago -->
+                <Label text="Valor Recebido (R$):" styleClass="field-label"/>
+                <TextField fx:id="txtValorPago" text="0,00" styleClass="txt-valor-pago" maxWidth="Infinity"/>
+
+                <!-- Troco -->
+                <HBox styleClass="troco-box">
+                    <Label text="Troco:" styleClass="troco-label" HBox.hgrow="ALWAYS"/>
+                    <Label fx:id="lblTroco" text="R$ 0,00" styleClass="troco-valor"/>
+                </HBox>
+
+                <Region VBox.vgrow="ALWAYS"/>
+
+                <!-- Botões de ação -->
+                <Button text="✅ FINALIZAR VENDA" onAction="#finalizarVenda"
+                        maxWidth="Infinity" styleClass="btn-finalizar"/>
+                <Button text="🗑️ NOVA VENDA" onAction="#novaVenda"
+                        maxWidth="Infinity" styleClass="btn-nova-venda"/>
+            </VBox>
+        </HBox>
+    </center>
+</BorderPane>
