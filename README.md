@@ -47,13 +47,13 @@ src/main/resources/com/pdv/
 ## ✅ Funcionalidades
 
 ### Tela PDV (Principal)
-- 🔍 Busca de produto por **código** ou **nome**
-- ✅ Adiciona itens com quantidade personalizada
-- ❌ Remove item com tecla **Delete**
-- 💰 Cálculo automático de subtotal, desconto e total
-- 💳 Formas de pagamento: Dinheiro, Crédito, Débito, PIX
-- 🧾 Cálculo de troco automático
-- 📊 Dashboard com vendas do dia em tempo real
+-  Busca de produto por **código** ou **nome**
+-  Adiciona itens com quantidade personalizada
+-  Remove item com tecla **Delete**
+-  Cálculo automático de subtotal, desconto e total
+-  Formas de pagamento: Dinheiro, Crédito, Débito, PIX
+-  Cálculo de troco automático
+-  Dashboard com vendas do dia em tempo real
 
 ### Cadastro de Produtos
 - CRUD completo (criar, listar, editar, excluir)
@@ -116,7 +116,7 @@ Tema **dark** profissional com:
 
 ---
 
-## 🔄 Próximas Melhorias Sugeridas
+## 🔄 Próximas Melhorias
 
 - [ ] Relatório PDF com JasperReports
 - [ ] Autenticação de operador
