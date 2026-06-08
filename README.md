@@ -116,7 +116,7 @@ Tema **dark** profissional com:
 
 ---
 
-## 🔄 Próximas Melhorias
+## 🔄 Possíveis Melhorias
 
 - [ ] Relatório PDF com JasperReports
 - [ ] Autenticação de operador
