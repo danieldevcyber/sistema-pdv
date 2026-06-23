@@ -72,6 +72,34 @@ src/main/resources/com/pdv/
 - Java 21+ (JDK)
 - Maven 3.8+
 - JavaFX 21 (gerenciado pelo Maven)
+- PostgresSQL +13
+
+## 🗄️ Banco de Dados
+
+Este projeto utiliza **PostgreSQL** como banco de dados e acesso via **JDBC + DAO Pattern**.
+
+### Configuração
+
+Crie um banco chamado `pdv` no PostgreSQL e ajuste as credenciais na classe:
+
+```java
+DatabaseConnection.java
+```
+
+Exemplo de conexão:
+
+```properties
+jdbc:postgresql://localhost:5432/pdv
+```
+
+### Estrutura inicial
+
+Ao iniciar a aplicação, as tabelas são criadas automaticamente (quando configurado) e alguns produtos de exemplo podem ser inseridos para testes.
+
+**Tecnologias utilizadas no acesso aos dados:**
+
+* PostgreSQL
+* JDBC
 
 ### Rodando o projeto
 ```bash
