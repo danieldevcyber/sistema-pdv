@@ -11,8 +11,8 @@ public class DatabaseConnection {
     private static final String HOST   = "localhost";
     private static final String PORT   = "5432";
     private static final String DB     = "pdv_db";
-    private static final String USER   = "postgres";
-    private static final String PASS   = "admin123";
+    private static final String USER   = "seu_usuario";
+    private static final String PASS   = "sua_senha";
 
     private static final String URL =
             "jdbc:postgresql://" + HOST + ":" + PORT + "/" + DB;
